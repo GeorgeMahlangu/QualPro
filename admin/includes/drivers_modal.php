@@ -5,10 +5,10 @@
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title"><b>Add New Officer</b></h4>
+              <h4 class="modal-title"><b>Add New Driver</b></h4>
             </div>
             <div class="modal-body">
-              <form class="form-horizontal" method="POST" action="users_add.php" enctype="multipart/form-data">
+              <form class="form-horizontal" method="POST" action="driver_add.php" enctype="multipart/form-data">
                
                 <div class="form-group">
                     <label for="firstname" class="col-sm-3 control-label">Firstname</label>
@@ -29,6 +29,14 @@
 
                     <div class="col-sm-9">
                       <input type="text" class="form-control" id="cellnumber" name="cellnumber" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="address" class="col-sm-3 control-label">Address</label>
+                    <div class="col-sm-9">
+                    <textarea id="address" name="address" rows="4" cols="50">
+
+                    </textarea>
                     </div>
                 </div>
                 <div class="form-group">

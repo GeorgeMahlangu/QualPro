@@ -26,7 +26,7 @@
       }
     ?>
   	<div class="login-box-body">
-    	<p class="login-box-msg">Sign in to start your session</p>
+    	<p class="login-box-msg">Sign in to NTA Dashboard</p>
 
     	<form action="verify.php" method="POST">
       		<div class="form-group has-feedback">

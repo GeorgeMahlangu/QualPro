@@ -22,10 +22,16 @@
 		$firstname = $_POST['firstname'];
 		$lastname = $_POST['lastname'];
 		//$photo = $_FILES['photo']['name'];
+		if($curr_password != $admin['password'])
+		{
+			$_SESSION['error'] = 'Invalid Current Password';
+			header('location: officers.php');
+			exit();	
+		}
 
 		if(!preg_match($emailValidation,$email)){
 			$_SESSION['error'] = 'Invalid Email address';
-			header('location: users.php');
+			header('location: officers.php');
 			exit();	
 		}
 
@@ -33,35 +39,34 @@
 
 		if(!preg_match($name,$firstname)){
 			$_SESSION['error'] = 'Invalid First Name Format';
-			header('location: users.php');
+			header('location: officers.php');
 			exit();	
 		}
 
 		if(!preg_match($name,$lastname)){
 			$_SESSION['error'] = 'Invalid Last Name Format';
-			header('location: users.php');
+			header('location: officers.php');
 			exit();	
 		}
 		if(!empty($password))
 		{
 			if(strlen($password) < 8){
 				$_SESSION['error'] = 'Password is too Short';
-				header('location: users.php');
+				header('location: officers.php');
 				exit();	
 			}
 			else
 			{
-				$password = password_hash($password, PASSWORD_DEFAULT);
+				$password = $password;
 			}
 		}
 		else
 		{
-			$password = $user['password'];
+			$password = $admin['password'];
 		}
 
 
 
-		if(password_verify($curr_password, $admin['password'])){
 			/*if(!empty($photo)){
 				move_uploaded_file($_FILES['photo']['tmp_name'], '../images/'.$photo);
 				$filename = $photo;	
@@ -74,14 +79,14 @@
 				$password = $admin['password'];
 			}
 			else{
-				$password = password_hash($password, PASSWORD_DEFAULT);
+				$password = $password;
 			}
 
 			$conn = $pdo->open();
 
 			try{
-				$stmt = $conn->prepare("UPDATE administrator SET email=:email, password=:password, firstname=:firstname, lastname=:lastname WHERE adminID=:id");
-				$stmt->execute(['email'=>$email, 'password'=>$password, 'firstname'=>$firstname, 'lastname'=>$lastname, 'id'=>$admin['adminID']]);
+				$stmt = $conn->prepare("UPDATE administrator SET email=:email, password=:password, firstname=:firstname, lastname=:lastname WHERE email=:id");
+				$stmt->execute(['email'=>$email, 'password'=>$password, 'firstname'=>$firstname, 'lastname'=>$lastname, 'id'=>$admin['email']]);
 
 				$_SESSION['success'] = 'Account updated successfully';
 			}
@@ -91,10 +96,8 @@
 
 			$pdo->close();
 			
-		}
-		else{
-			$_SESSION['error'] = 'Incorrect password';
-		}
+		
+		
 	}
 	else{
 		$_SESSION['error'] = 'Fill up required details first';

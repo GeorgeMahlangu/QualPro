@@ -6,7 +6,7 @@
 		
 		$conn = $pdo->open();
 
-		$stmt = $conn->prepare("SELECT * FROM officer WHERE staffNumber=:id");
+		$stmt = $conn->prepare("SELECT * FROM licence WHERE id=:id");
 		$stmt->execute(['id'=>$id]);
 		$row = $stmt->fetch();
 		

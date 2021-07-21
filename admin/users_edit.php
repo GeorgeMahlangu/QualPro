@@ -16,7 +16,7 @@
 	
 		if(!preg_match($emailValidation,$email)){
 			$_SESSION['error'] = 'Invalid Email address';
-			header('location: users.php');
+			header('location: officers.php');
 			exit();	
 		}
 
@@ -24,20 +24,20 @@
 
 		if(!preg_match($name,$firstname)){
 			$_SESSION['error'] = 'Invalid First Name Format';
-			header('location: users.php');
+			header('location: officers.php');
 			exit();	
 		}
 
 		if(!preg_match($name,$lastname)){
 			$_SESSION['error'] = 'Invalid Last Name Format';
-			header('location: users.php');
+			header('location: officers.php');
 			exit();	
 		}
 		if(!empty($password))
 		{
 			if(strlen($password) < 8){
 				$_SESSION['error'] = 'Password is too Short';
-				header('location: users.php');
+				header('location: officers.php');
 				exit();	
 			}
 			else
@@ -52,7 +52,7 @@
 
 
 		$conn = $pdo->open();
-		$stmt = $conn->prepare("SELECT * FROM user WHERE id=:id");
+		$stmt = $conn->prepare("SELECT * FROM officer WHERE staffNumber=:id");
 		$stmt->execute(['id'=>$id]);
 		$row = $stmt->fetch();
 
@@ -64,9 +64,9 @@
 		}
 
 		try{
-			$stmt = $conn->prepare("UPDATE user SET email=:email, password=:password, firstname=:firstname, lastname=:lastname WHERE id=:id");
+			$stmt = $conn->prepare("UPDATE officer SET email=:email, password=:password, firstname=:firstname, lastname=:lastname WHERE staffNumber=:id");
 			$stmt->execute(['email'=>$email, 'password'=>$password, 'firstname'=>$firstname, 'lastname'=>$lastname, 'id'=>$id]);
-			$_SESSION['success'] = 'User updated successfully';
+			$_SESSION['success'] = 'Officer updated successfully';
 
 		}
 		catch(PDOException $e){
@@ -77,9 +77,9 @@
 		$pdo->close();
 	}
 	else{
-		$_SESSION['error'] = 'Fill up edit user form first';
+		$_SESSION['error'] = 'Fill up edit officer form first';
 	}
 
-	header('location: users.php');
+	header('location: officers.php');
 
 ?>

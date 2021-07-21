@@ -7,10 +7,10 @@
 		$conn = $pdo->open();
 
 		try{
-			$stmt = $conn->prepare("DELETE FROM officer WHERE staffNumber=:id");
+			$stmt = $conn->prepare("DELETE FROM ticket WHERE refference=:id");
 			$stmt->execute(['id'=>$id]);
 
-			$_SESSION['success'] = 'Officer deleted successfully';
+			$_SESSION['success'] = 'Ticket deleted successfully';
 		}
 		catch(PDOException $e){
 			$_SESSION['error'] = $e->getMessage();
@@ -19,9 +19,9 @@
 		$pdo->close();
 	}
 	else{
-		$_SESSION['error'] = 'Select user to delete first';
+		$_SESSION['error'] = 'Select ticket to delete first';
 	}
 
-	header('location: officers.php');
+	header('location: tickets.php');
 	
 ?>

@@ -16,7 +16,11 @@
       <li class="header">WELCOME</li>
       <li><a href="home.php"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
       <li class="header">MANAGE</li>
-      <li><a href="users.php"><i class="fa fa-users"></i> <span>Users</span></a></li>
+      <li><a href="officers.php"><i class="fa fa-users"></i> <span>Officers</span></a></li>
+      <li><a href="drivers.php"><i class="fa fa-car"></i> <span>Drivers</span></a></li>
+      <li><a href="tickets.php"><i class="fa fa-money"></i> <span>Tickets</span></a></li>
+      <li><a href="licence.php"><i class="fa fa-barcode"></i> <span>Licences</span></a></li>
+      <li><a href="charges.php"><i class="fa fa-line-chart"></i> <span>Charges</span></a></li>
     </ul>
   </section>
   <!-- /.sidebar -->

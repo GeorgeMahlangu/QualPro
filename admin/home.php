@@ -59,44 +59,117 @@
       <div class="row">
         <div class="col-lg-3 col-xs-6">
           <!-- small box -->
-          <div class="small-box bg-aqua">
+          <div class="small-box bg-red">
             <div class="inner">
             <?php
-                $stmt = $conn->prepare("SELECT *, COUNT(*) AS numrows FROM user");
+                $stmt = $conn->prepare("SELECT *, COUNT(*) AS numrows FROM officer");
                 $stmt->execute();
                 $urow =  $stmt->fetch();
 
                 echo "<h3>".$urow['numrows']."</h3>";
               ?>
              
-              <p>Number of Users</p>
+              <p>Number of Officers</p>
             </div>
             <div class="icon">
               <i class="fa fa-users"></i>
             </div>
-            <a href="users.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="officers.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
           </div>
+       
+        </div>
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-aqua">
+            <div class="inner">
+            <?php
+                $stmt = $conn->prepare("SELECT *, COUNT(*) AS numrows FROM driver");
+                $stmt->execute();
+                $urow =  $stmt->fetch();
+
+                echo "<h3>".$urow['numrows']."</h3>";
+              ?>
+             
+              <p>Number of Drivers</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-car"></i>
+            </div>
+            <a href="drivers.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+    
         </div>
         <!-- ./col -->
         <div class="col-lg-3 col-xs-6">
           <!-- small box -->
+          <div class="small-box bg-green">
+            <div class="inner">
+            <?php
+                $stmt = $conn->prepare("SELECT *, COUNT(*) AS numrows FROM ticket");
+                $stmt->execute();
+                $urow =  $stmt->fetch();
+
+                echo "<h3>".$urow['numrows']."</h3>";
+              ?>
+             
+              <p>Number of Tickets</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-money"></i>
+            </div>
+            <a href="tickets.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+          
+        </div>
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-orange">
+            <div class="inner">
+            <?php
+                $stmt = $conn->prepare("SELECT *, COUNT(*) AS numrows FROM licence");
+                $stmt->execute();
+                $urow =  $stmt->fetch();
+
+                echo "<h3>".$urow['numrows']."</h3>";
+              ?>
+             
+              <p>Number of Licences</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-barcode"></i>
+            </div>
+            <a href="licence.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
           
         </div>
         <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
-          <!-- small box -->
-          
-        </div>
-        <!-- ./col -->
-        <div class="col-lg-3 col-xs-6">
-          <!-- small box -->
-         
-        </div>
+       
         <!-- ./col -->
       </div>
       <!-- /.row -->
       <div class="row">
-        <div class="col-xs-12">
+        
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-purple">
+            <div class="inner">
+            <?php
+                $stmt = $conn->prepare("SELECT *, COUNT(*) AS numrows FROM charge");
+                $stmt->execute();
+                $urow =  $stmt->fetch();
+
+                echo "<h3>".$urow['numrows']."</h3>";
+              ?>
+             
+              <p>Number of Charges</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-line-chart"></i>
+            </div>
+            <a href="charges.php" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+          
+      
           </div>
         </div>
       </div>

@@ -9,8 +9,8 @@
 
 	$conn = $pdo->open();
 
-	$stmt = $conn->prepare("SELECT * FROM administrator WHERE adminID=:id");
-	$stmt->execute(['id'=>$_SESSION['admin']]);
+	$stmt = $conn->prepare("SELECT * FROM administrator WHERE email=:email");
+	$stmt->execute(['email'=>$_SESSION['admin']]);
 	$admin = $stmt->fetch();
 
 	$pdo->close();

@@ -2,15 +2,29 @@
 
 Class Database{
  
-	private $server = "mysql:host=localhost;dbname=qualification";
-	private $username = "root";
-	private $password = "";
+
+	// $db = getenv("MYSQL_ADDON_DB");
+	// // Get the database user from the environment
+	// $user = getenv("MYSQL_ADDON_USER");
+	// // Get the database password from the environment
+	// $pass = getenv("MYSQL_ADDON_PASSWORD");
+	// // This variable is injected during the deployment
+	// $socket = getenv("CC_MYSQL_PROXYSQL_SOCKET_PATH");
+	// $dsn = "mysql:unix_socket=$socket;dbname=$db";
+	// try {
+	// 	$pdo = new PDO($dsn, $user, $pass);
+	// } catch (PDOException $e) {
+	// 	throw new PDOException($e->getMessage(), (int)$e->getCode());
+	// }
+	private $server = "mysql:host=b2fsvsqomecefeprcgga-mysql.services.clever-cloud.com;dbname=b2fsvsqomecefeprcgga";
+	private $username = "uq4i4rz6tyaobp5x";
+	private $password = "6wPNPeW62jzRfqyzUHBv";
 	private $options  = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,);
 	protected $conn;
  	
 	public function open(){
  		try{
- 			$this->conn = new PDO($this->server, $this->username, $this->password, $this->options);
+ 			$this->conn = new PDO($this->server, $this->username, $this->password);
  			return $this->conn;
  		}
  		catch (PDOException $e){

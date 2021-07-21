@@ -38,7 +38,7 @@
 
 				if($row['numrows1'] > 0){
 					if($password == $row['password']){
-							$_SESSION['admin'] = $row['adminID'];
+							$_SESSION['admin'] = $row['email'];
 					}
 					else{
 						$_SESSION['error'] = 'Incorrect Password';

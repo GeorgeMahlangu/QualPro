@@ -21,15 +21,16 @@
 		$email = $_POST['email'];
 		$password = $_POST['password'];
 		$cellnumber = $_POST['cellnumber'];
+        $address = $_POST['address'];
 		
 		$conn = $pdo->open();
 
-		$stmt = $conn->prepare("SELECT *, COUNT(*) AS numrows FROM Officer WHERE email=:email");
+		$stmt = $conn->prepare("SELECT *, COUNT(*) AS numrows FROM driver WHERE email=:email");
 		$stmt->execute(['email'=>$email]);
 		$row = $stmt->fetch();
 
 		if($row['numrows'] > 0){
-			$_SESSION['error'] = 'Email already taken';
+			$_SESSION['error'] = 'Email already exist';
 			exit();
 		}
 
@@ -39,7 +40,7 @@
 			$filename = $_FILES['photo']['name'];
 			$now = date('Y-m-d');
 			try{
-				$stmt = $conn->prepare("INSERT INTO `officer` (`staffNumber`, `created_at`, `updated_at`, `firstname`, `lastname`, `email`,`cellnumber`,`password`, `one_time_pin`) VALUES (NULL, NOW(), NOW(), :firstname, :lastname, :email, :cellnumber, :password, :one_time_pin)");
+				$stmt = $conn->prepare("INSERT INTO `driver` (`staffNumber`, `created_at`, `updated_at`, `firstname`, `lastname`, `email`,`cellnumber`,`password`, `one_time_pin`) VALUES (NULL, NOW(), NOW(), :firstname, :lastname, :email, :cellnumber, :password, :one_time_pin)");
 				$stmt->execute(['firstname'=>$firstname, 'lastname'=>$lastname, 'email'=>$email,'cellnumber'=>$cellnumber, 'password'=>$password, 'one_time_pin'=>$rand]);
 				$_SESSION['success'] = 'Officer added successfully';
 

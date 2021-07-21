@@ -2,9 +2,9 @@
   <!-- Logo -->
   <a href="#" class="logo">
     <!-- mini logo for sidebar mini 50x50 pixels -->
-    <span class="logo-mini"><b>Q</b>P</span>
+    <span class="logo-mini"><b>N</b>D</span>
     <!-- logo for regular state and mobile devices -->
-    <span class="logo-lg"><b>Qualification Pro</b></span>
+    <span class="logo-lg"><b>NTA Dashboard</b></span>
   </a>
   <!-- Header Navbar: style can be found in header.less -->
   <nav class="navbar navbar-static-top">
@@ -27,7 +27,7 @@
 
               <p>
                 <?php echo $admin['firstname'].' '.$admin['lastname']; ?>
-                <small>Member since <?php echo date('M. Y', strtotime($admin['date_created'])); ?></small>
+                <!-- <small>Member since <?php echo date('M. Y', strtotime($admin['date_created'])); ?></small> -->
               </p>
             </li>
             <li class="user-footer">
